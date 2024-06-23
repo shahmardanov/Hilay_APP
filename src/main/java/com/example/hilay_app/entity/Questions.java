@@ -20,6 +20,9 @@ public class Questions {
     @Column(nullable = false)
     private String questionText;
 
+    @Column(name = "fk_level_id")
+    private long fkLevelId;
+
     @Column(name = "fk_sub_category_id", nullable = false)
     private long fkSubCategoryId;
 
