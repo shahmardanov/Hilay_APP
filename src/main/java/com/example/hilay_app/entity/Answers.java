@@ -17,7 +17,7 @@ public class Answers {
     private long answerId;
 
     @Column(name = "fk_question_id", nullable = false)
-    private long questionId;
+    private long fkQuestionId;
 
     @Column(nullable = false)
     private String answerText;

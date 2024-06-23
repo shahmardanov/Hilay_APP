@@ -6,25 +6,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user_answers")
+@Table(name = "sub_categories")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserAnswers {
+public class SubCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long responseId;
+    private long subCategoryId;
 
     @Column(nullable = false)
-    private long fkStudentId;
+    private String subCategoryName;
 
-    @Column(nullable = false)
-    private long fkQuestionId;
-
-    private Long fkSelectedAnswerId;
-
-    @Column(nullable = false)
-    private Boolean isSkipped;
-
+    @Column(name = "fk_main_category_id", nullable = false)
+    private long fkMainCategoryId;
 }
