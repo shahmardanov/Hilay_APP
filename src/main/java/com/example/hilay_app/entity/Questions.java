@@ -23,7 +23,7 @@ public class Questions {
     @Column(name = "fk_level_id")
     private long fkLevelId;
 
-    @Column(name = "fk_sub_category_id", nullable = false)
-    private long fkSubCategoryId;
+    @Column(name = "fk_card_id", nullable = false)
+    private long fkCardId;
 
 }
