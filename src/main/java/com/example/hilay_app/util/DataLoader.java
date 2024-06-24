@@ -15,12 +15,14 @@ public class DataLoader implements CommandLineRunner {
     private final QuestionsLevelRepository questionsLevelRepository;
     private final QuestionsRepository questionsRepository;
     private final AnswersRepository answersRepository;
+    private final CardRepository cardRepository;
 
     @Override
     public void run(String... args) throws Exception {
         loadCategories();
         loadLevels();
         loadQuestionsAndAnswers();
+        loadCards();
     }
 
     private void loadCategories() {
@@ -64,6 +66,11 @@ public class DataLoader implements CommandLineRunner {
         robotexnikaSubCategory.setFkMainCategoryId(elanlarCategory.getMainCategoryId());
         subCategoryRepository.save(robotexnikaSubCategory);
 
+        SubCategory itIxtisasiProgrami = new SubCategory();
+        itIxtisasiProgrami.setSubCategoryName("IT ixtisasi programi 2024-2025");
+        itIxtisasiProgrami.setFkMainCategoryId(kursCategory.getMainCategoryId());
+        subCategoryRepository.save(itIxtisasiProgrami);
+
     }
 
     private void loadLevels() {
@@ -88,7 +95,7 @@ public class DataLoader implements CommandLineRunner {
         Questions question1 = new Questions();
         question1.setQuestionText("What is 2 + 2?");
         question1.setFkLevelId(1L); // easy level
-        question1.setFkSubCategoryId(1L); // SubCategory = Oyunlar
+        question1.setFkCardId(1L); // card = "Modul 1 Ikt-ye Giris"
         questionsRepository.save(question1);
 
         Answers answer1 = new Answers();
@@ -114,6 +121,51 @@ public class DataLoader implements CommandLineRunner {
         answer4.setAnswerText("6");
         answer4.setIsCorrect(false);
         answersRepository.save(answer4);
+
+    }
+
+    private void loadCards(){
+        Card card = new Card(); //elanlar
+        card.setTitle("Usaqlar ucun IT ixtisasi");
+        card.setContent("text");
+        card.setImage("image.png");
+        card.setFkSubCategoryId(1L);
+        cardRepository.save(card);
+
+        Card card1 = new Card(); //elanlar
+        card1.setTitle("Usaqlar ucun Karyera");
+        card1.setContent("text");
+        card1.setImage("image1.png");
+        card1.setFkSubCategoryId(1L);
+        cardRepository.save(card1);
+
+        Card card2 = new Card(); //elanlar
+        card2.setTitle("Usaqlar ucun Proqram");
+        card2.setContent("text");
+        card2.setImage("image2.png");
+        card2.setFkSubCategoryId(1L);
+        cardRepository.save(card2);
+
+        Card card3 = new Card(); //kurs
+        card3.setTitle("Modul 1 Ikt-ye Giris");
+        card3.setContent("text");
+        card3.setImage("image-modul.png");
+        card3.setFkSubCategoryId(7L);
+        cardRepository.save(card3);
+
+        Card card4 = new Card(); //kurs
+        card4.setTitle("Modul 2 Komputerin qurulusu");
+        card4.setContent("text");
+        card4.setImage("image-modul-2.png");
+        card4.setFkSubCategoryId(7L);
+        cardRepository.save(card4);
+
+        Card card5 = new Card(); //kurs
+        card5.setTitle("Modul 3 Metn Redaktoru");
+        card5.setContent("text");
+        card5.setImage("image-modul-3.png");
+        card5.setFkSubCategoryId(7L);
+        cardRepository.save(card5);
 
     }
 }
