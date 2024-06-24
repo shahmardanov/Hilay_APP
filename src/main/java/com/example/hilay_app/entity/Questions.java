@@ -1,6 +1,5 @@
 package com.example.hilay_app.entity;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +18,9 @@ public class Questions {
 
     @Column(nullable = false)
     private String questionText;
+
+    @Column(columnDefinition = "TEXT")
+    private String image;
 
     @Column(name = "fk_level_id")
     private long fkLevelId;
