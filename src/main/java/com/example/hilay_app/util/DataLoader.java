@@ -4,6 +4,8 @@ import com.example.hilay_app.entity.*;
 import com.example.hilay_app.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,13 +18,29 @@ public class DataLoader implements CommandLineRunner {
     private final QuestionsRepository questionsRepository;
     private final AnswersRepository answersRepository;
     private final CardRepository cardRepository;
+    private final StudentRepository studentRepository;
 
     @Override
     public void run(String... args) throws Exception {
+        loadStudent();
         loadCategories();
         loadLevels();
         loadQuestionsAndAnswers();
         loadCards();
+    }
+
+    private void loadStudent() {
+        Student student = new Student();
+        student.setName("Example");
+        student.setSurname("Student");
+        student.setUsername("example_student");
+        student.setPassword("password");
+
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(student.getPassword());
+        student.setPassword(encodedPassword);
+
+        studentRepository.save(student);
     }
 
     private void loadCategories() {
@@ -128,42 +146,42 @@ public class DataLoader implements CommandLineRunner {
         Card card = new Card(); //elanlar
         card.setTitle("Usaqlar ucun IT ixtisasi");
         card.setContent("text");
-        card.setImage("image.png");
+        card.setFkImageId(1L);
         card.setFkSubCategoryId(1L);
         cardRepository.save(card);
 
         Card card1 = new Card(); //elanlar
         card1.setTitle("Usaqlar ucun Karyera");
         card1.setContent("text");
-        card1.setImage("image1.png");
+        card1.setFkImageId(1L);
         card1.setFkSubCategoryId(1L);
         cardRepository.save(card1);
 
         Card card2 = new Card(); //elanlar
         card2.setTitle("Usaqlar ucun Proqram");
         card2.setContent("text");
-        card2.setImage("image2.png");
+        card2.setFkImageId(1L);
         card2.setFkSubCategoryId(1L);
         cardRepository.save(card2);
 
         Card card3 = new Card(); //kurs
         card3.setTitle("Modul 1 Ikt-ye Giris");
         card3.setContent("text");
-        card3.setImage("image-modul.png");
+        card3.setFkImageId(1L);
         card3.setFkSubCategoryId(7L);
         cardRepository.save(card3);
 
         Card card4 = new Card(); //kurs
         card4.setTitle("Modul 2 Komputerin qurulusu");
         card4.setContent("text");
-        card4.setImage("image-modul-2.png");
+        card4.setFkImageId(1L);
         card4.setFkSubCategoryId(7L);
         cardRepository.save(card4);
 
         Card card5 = new Card(); //kurs
         card5.setTitle("Modul 3 Metn Redaktoru");
         card5.setContent("text");
-        card5.setImage("image-modul-3.png");
+        card5.setFkImageId(1l);
         card5.setFkSubCategoryId(7L);
         cardRepository.save(card5);
 
