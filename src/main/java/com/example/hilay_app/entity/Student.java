@@ -23,6 +23,7 @@ public class Student {
     private String surname;
     private String username;
     private String password;
+    private Long fkImageId;
 
     @Column(columnDefinition = "TEXT")
     private String bio;
@@ -34,5 +35,6 @@ public class Student {
     private LocalDate updatedAt;
 
     private Long fkGroupId;
+    private Long fkTeacherId;
 
 }

@@ -18,9 +18,7 @@ public class Questions {
 
     @Column(nullable = false)
     private String questionText;
-
-    @Column(columnDefinition = "TEXT")
-    private String image;
+    private Long fkImageId;
 
     @Column(name = "fk_level_id")
     private long fkLevelId;
