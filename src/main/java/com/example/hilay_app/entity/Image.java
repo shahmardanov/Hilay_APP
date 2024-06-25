@@ -1,30 +1,24 @@
 package com.example.hilay_app.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "cards")
+@Table
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Card {
+public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(nullable = false)
-    private String title;
-
+    private Long id;
     @Column(columnDefinition = "TEXT")
-    private String content;
-
-    private Long fkImageId;
-
-    @Column(nullable = false)
-    private long fkSubCategoryId;
+    private String fileName;
+    @Column(columnDefinition = "TEXT")
+    private String filePath;
 
 }
