@@ -23,7 +23,6 @@ public class Student {
     private String surname;
     private String username;
     private String password;
-    private String groupName;
 
     @Column(columnDefinition = "TEXT")
     private String bio;
@@ -33,5 +32,7 @@ public class Student {
 
     @UpdateTimestamp
     private LocalDate updatedAt;
+
+    private Long fkGroupId;
 
 }
