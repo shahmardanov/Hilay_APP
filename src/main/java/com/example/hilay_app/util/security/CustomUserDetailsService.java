@@ -1,4 +1,4 @@
-package com.example.hilay_app.service;
+package com.example.hilay_app.util.security;
 
 import com.example.hilay_app.entity.Student;
 import com.example.hilay_app.repository.StudentRepository;
