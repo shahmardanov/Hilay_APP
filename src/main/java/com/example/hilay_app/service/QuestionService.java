@@ -18,7 +18,6 @@ public class QuestionService {
     private final ImageRepository imageRepository;
     private final QuestionsRepository questionsRepository;
 
-
     public String createQuestion(String questionText, Long fkLevelId, Long fkCardId, MultipartFile file) throws IOException {
         Long fkImageId = null;
         if (file != null && !file.isEmpty()) {
