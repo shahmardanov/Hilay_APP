@@ -13,6 +13,6 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
     List<Student> findByFkGroupId(Long fkGroupId);
     Student findByUsername(String username);
 
-    @Query("SELECT s FROM Student s JOIN ChatGroup g ON s.fkGroupId = g.id WHERE g.name = :groupName")
-    List<Student> findByGroupName(@Param("groupName") String groupName);
+//    @Query("SELECT s FROM Student s JOIN ChatGroup g ON s.fkGroupId = g.id WHERE g.name = :groupName")
+//    List<Student> findByGroupName(@Param("groupName") String groupName);
 }
