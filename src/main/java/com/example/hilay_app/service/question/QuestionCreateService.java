@@ -1,9 +1,10 @@
-package com.example.hilay_app.service;
+package com.example.hilay_app.service.question;
 
 import com.example.hilay_app.entity.Image;
 import com.example.hilay_app.entity.Questions;
 import com.example.hilay_app.repository.ImageRepository;
 import com.example.hilay_app.repository.QuestionsRepository;
+import com.example.hilay_app.service.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
-public class QuestionService {
+public class QuestionCreateService {
 
     private final ImageService imageService;
     private final ImageRepository imageRepository;
