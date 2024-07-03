@@ -1,4 +1,4 @@
-package com.example.hilay_app.service;
+package com.example.hilay_app.service.chatMessage;
 
 import com.example.hilay_app.entity.ChatMessage;
 import com.example.hilay_app.repository.ChatGroupRepository;

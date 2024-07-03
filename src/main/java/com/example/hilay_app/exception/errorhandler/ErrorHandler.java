@@ -238,4 +238,15 @@ public class ErrorHandler {
                 .build();
     }
 
+    @ExceptionHandler(ChatGroupExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse handlerChatGroupExistsException(Exception exception) {
+        log.error("handlerChatGroupExistsException {}", exception.getMessage());
+
+        return ErrorResponse.builder()
+                .code(HttpStatus.CONFLICT.name())
+                .message(exception.getMessage())
+                .build();
+    }
+
 }

@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChatGroupRepository extends JpaRepository<ChatGroup, Long> {
 
+    ChatGroup findByName(String name);
 }
