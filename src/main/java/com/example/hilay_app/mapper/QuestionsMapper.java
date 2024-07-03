@@ -2,7 +2,6 @@ package com.example.hilay_app.mapper;
 
 import com.example.hilay_app.entity.Questions;
 import com.example.hilay_app.request.update.QuestionsUpdateRequest;
-import com.example.hilay_app.response.create.QuestionsCreateResponse;
 import com.example.hilay_app.response.read.QuestionsReadResponse;
 import com.example.hilay_app.response.update.QuestionsUpdateResponse;
 import org.mapstruct.Mapper;
@@ -14,9 +13,7 @@ import org.mapstruct.ReportingPolicy;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface QuestionsMapper {
 
-    QuestionsCreateResponse toResponse(Questions questions);
 
-  //  Questions toEntity(QuestionsCreateRequest questionsCreateRequest);
 
     QuestionsUpdateResponse toUpdateResponse(Questions questions);
     QuestionsReadResponse toReadResponse(Questions questions);
