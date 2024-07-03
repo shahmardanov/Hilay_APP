@@ -182,7 +182,7 @@ public class ErrorHandler {
 
 
 
-    @ExceptionHandler(ImageNotFoundException.class)
+    @ExceptionHandler(ImageFileNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse handlerImageNotFoundException(Exception exception) {
         log.error("handlerImageNotFoundException {}", exception.getMessage());
@@ -223,6 +223,17 @@ public class ErrorHandler {
 
         return ErrorResponse.builder()
                 .code(HttpStatus.BAD_REQUEST.name())
+                .message(exception.getMessage())
+                .build();
+    }
+
+    @ExceptionHandler(ImageFileNameExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ErrorResponse handlerImageFileNameExistsException(Exception exception) {
+        log.error("handlerImageFileNameExistsException {}", exception.getMessage());
+
+        return ErrorResponse.builder()
+                .code(HttpStatus.CONFLICT.name())
                 .message(exception.getMessage())
                 .build();
     }
